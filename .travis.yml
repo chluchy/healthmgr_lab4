@@ -3,5 +3,8 @@ python:
   - "3.4"
   - "3.5"
 # command to run tests
+install:
+  - pip install -r pandas
+
 script:
   - python TestDoctordb.py
