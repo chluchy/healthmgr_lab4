@@ -4,4 +4,4 @@ python:
   - "3.5"
 # command to run tests
 script:
-  - python healthmgr_proj_testsuite.ipynb
+  - python healthmgr_proj_testsuite.py
