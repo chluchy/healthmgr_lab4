@@ -4,7 +4,7 @@ python:
   - "3.5"
 # command to run tests
 install:
-  - pip install -r pandas
+  - pip install pandas
 
 script:
   - python TestDoctordb.py
