@@ -28,6 +28,9 @@ class TestDrdb(unittest.TestCase):
         self.assertEqual(drdb.doc_search(self.df,'infectious disease'),'Doctors matching that specialty include: carter')
         self.assertEqual(drdb.doc_search(self.df,'nephrology'),'Sorry, there are no doctors with that specialty')
         self.assertEqual(drdb.doc_search(self.df,'opthamology'),'Sorry, there are no doctors with that specialty')
+        self.assertEqual(drdb.doc_search(self.p3,'opthamology'),'Please pass a dataframe and a string')
+        self.assertEqual(drdb.doc_search(self.df,5),'Please ensure specialty is a string')
+        self.assertEqual(drdb.doc_search(self.df,self.p3),'Please ensure specialty is a string') 
     def tearDown(self):
         self.df=None
         self.p1=None
