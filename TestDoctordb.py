@@ -1,4 +1,4 @@
-
+pip install pandas
 import pandas as pd
 from healthmgr.doctor import adddoc as ad
 from healthmgr.doctor import doctordb as drdb
