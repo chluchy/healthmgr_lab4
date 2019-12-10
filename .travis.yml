@@ -8,3 +8,4 @@ install:
 
 script:
   - python TestDoctordb.py
+  - python Adddoc.py
