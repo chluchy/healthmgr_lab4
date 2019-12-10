@@ -7,10 +7,17 @@
 class doctor:
     """ Create an instance of doctor with parameters name, current patients and max patients"""
     def __init__(self,name,pcurr,pmax):
-        self.name=name
-        self.pcurr=pcurr
-        self.pmax=pmax
-        self.pavail=int(self.pmax)-int(self.pcurr) # calculates spots available for new patients
+        try:
+            self.name=name
+            self.pcurr=pcurr
+            self.pmax=pmax
+            self.pavail=int(self.pmax)-int(self.pcurr) # calculates spots available for new patients
+            if self.pcurr<0 or self.pmax<0:
+                raise NegativeError()
+        except ValueError:
+            print("Please enter numbers for both current patients and max patients")
+        except NegativeError:
+            print("Patient counts must be greater than zero")
 
 class specialist(doctor):
     """Create an instance of a specialist with inherited class of doctor and additional methods"""
