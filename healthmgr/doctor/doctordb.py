@@ -22,7 +22,5 @@ def doc_search(df,spec):
             return("Doctors matching that specialty include: {}".format(', '.join(doclist)))
     except StringError:
         return("Please ensure specialty is a string")
-    except TypeError:
-        return("Please pass a dataframe and a string")
     except AssertionError:
         return("Please pass a dataframe and a string")
