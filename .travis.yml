@@ -7,5 +7,4 @@ install:
   - pip install pandas
 
 script:
-  - python TestDoctordb.py
   - python Adddoc.py
