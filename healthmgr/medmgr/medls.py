@@ -3,7 +3,23 @@
 
 # In[ ]:
 # File medls.py
+import sys
 from prettytable import PrettyTable
+
+
+class NameTooSmallError(Exception):
+    pass
+    
+def check_name(name):
+    try:
+        if len(name) < 2 :
+            raise NameTooSmallError
+    except TypeError:
+        print('Please enter a string.')
+        sys.exit()
+#     except:
+#         print(sys.exc_info(),"occurred.")
+
 class Medication:
     """A class for managing medication lists"""
     count = 0
@@ -11,13 +27,20 @@ class Medication:
 #     doseList = []
 #     freqList = []
     def __init__(self, name, dose, freq):
-        self.name=name
-        self.dose=dose
-        self.freq=freq
+        try:
+            check_name(name)
+            self.name=name
+            self.dose=dose
+            self.freq=freq
+        except NameTooSmallError:
+            print('Enter a valid medication name with more than 1 character.')
+            sys.exit()
+        except:
+            print(sys.exc_info(),"occurred.")
+            sys.exit()
         Medication.count += 1
         Medication.medList.append([name, dose, freq])
-#         Medication.doseList.append(dose)
-#         Medication.freqList.append(freq)
+
     def medCount(self):
         """Displays the total number of medications"""
         return('Total number of medications: {}'.format(Medication.count))
