@@ -7,7 +7,4 @@ install:
   - pip install pandas
 
 script:
-  - python TestAdddoc.py
-  - python TestDoctordb.py
-  - python testinsdose_mod.py
-  - python testmedmgr_mod.py
+  - python healthmgr_proj_testsuite.py
