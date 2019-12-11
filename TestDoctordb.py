@@ -1,4 +1,3 @@
-
 import pandas as pd
 from healthmgr.doctor import adddoc as ad
 from healthmgr.doctor import doctordb as drdb
@@ -23,12 +22,16 @@ class TestDrdb(unittest.TestCase):
         self.assertNotEqual('chen',self.df.name[1])
         self.assertEqual(247,self.df.max_patients[2])
     def test_search(self):
-        """ queries the dataframe to see if doctors match a given specialty """
+        """ Queries the dataframe to see if doctors match a given specialty. Also intentially raises three
+        errors to see if they are handled correctly"""
         self.assertEqual(drdb.doc_search(self.df,'surgery'),'Doctors matching that specialty include: chen')
         self.assertEqual(drdb.doc_search(self.df,'pediatrics'),'Doctors matching that specialty include: smith')
         self.assertEqual(drdb.doc_search(self.df,'infectious disease'),'Doctors matching that specialty include: carter')
         self.assertEqual(drdb.doc_search(self.df,'nephrology'),'Sorry, there are no doctors with that specialty')
         self.assertEqual(drdb.doc_search(self.df,'opthamology'),'Sorry, there are no doctors with that specialty')
+        self.assertEqual(drdb.doc_search(self.p3,'opthamology'),'Please pass a dataframe and a string')
+        self.assertEqual(drdb.doc_search(self.df,5),'Please ensure specialty is a string')
+        self.assertEqual(drdb.doc_search(self.df,self.p3),'Please ensure specialty is a string')
     def tearDown(self):
         self.df=None
         self.p1=None

@@ -3,5 +3,9 @@ python:
   - "3.4"
   - "3.5"
 # command to run tests
+install:
+  - pip install pandas
+
 script:
-  - python testinsdose_mod.py
+  - python TestAdddoc.py
+  - python TestDoctordb.py
