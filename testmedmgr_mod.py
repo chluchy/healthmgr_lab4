@@ -31,6 +31,10 @@ class TestMedLs(unittest.TestCase):
         cls.med4 = None
         mm.Medication.count = 0
         mm.Antibiotic.count = 0
+    
+#     def test_name(self):
+#         self.assertEqual(med5 = mm.Medication('a', '80mg', 'daily'), )
+#         self.assertEqual(mm.Medication(55, '80mg', 'daily'), )
 
     def test_counts(self):
         """Test the functions medCount and abxCount from module medmgr"""

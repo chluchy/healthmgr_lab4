@@ -18,8 +18,6 @@ def bbdosing(kg):
         total = round(kg * 0.5, 1)
         basal = round(total * 0.4, 1)
         bolus = round(total * 0.6, 1)
-        if kg <= 0:
-            raise ValueError()
     except ValueError:
         return('Please enter a positive number greater than 0.')
     except TypeError:
